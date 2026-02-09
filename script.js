@@ -3,13 +3,19 @@ const yesBtn = document.getElementById("yesBtn");
 
 let scale = 1;
 
-noBtn.addEventListener("mouseover", () => {
+function moveNoButton() {
     const x = Math.random() * 250 - 125;
     const y = Math.random() * 100 - 50;
 
     scale *= 0.85;
 
     noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveNoButton();
 });
 
 function createConfetti() {
@@ -53,41 +59,49 @@ function createConfetti() {
 }
 
 yesBtn.addEventListener("click", () => {
+    // Disabilita il bottone dopo il click
+    yesBtn.disabled = true;
+    noBtn.disabled = true;
+    
     // Create multiple confetti pieces
     for (let i = 0; i < 30; i++) {
         setTimeout(() => createConfetti(), i * 30);
     }
     
     setTimeout(() => {
-        document.body.innerHTML = `
-            <div style="
-                height:100vh;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                background:linear-gradient(135deg, #ffd6e8 0%, #fff5e6 50%, #e8f4f8 100%);
-                text-align:center;
-                font-family:'Comic Sans MS', Arial;
-                flex-direction: column;
-                gap: 20px;
-                overflow: hidden;
-            ">
-                <h1 style="
-                    font-size: 48px;
-                    background: linear-gradient(135deg, #ff69b4, #ff1493);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    margin: 0;
-                    letter-spacing: 2px;
-                \">Ma guarda un po', pensavo avresti schiacciato sul no...</h1>
-                <p style=\"
-                    font-size: 28px;
-                    color: #ff69b4;
-                    margin: 0;
-                    animation: bounce 1s infinite;
-                \">Preparati pupina, ti porto a cena</p>
-            </div>
+        const resultDiv = document.createElement('div');
+        resultDiv.style.cssText = `
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffd6e8 0%, #fff5e6 50%, #e8f4f8 100%);
+            text-align: center;
+            font-family: 'Comic Sans MS', Arial;
+            flex-direction: column;
+            gap: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+        `;
+        resultDiv.innerHTML = `
+            <h1 style="
+                font-size: 48px;
+                background: linear-gradient(135deg, #ff69b4, #ff1493);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin: 0;
+                letter-spacing: 2px;
+            ">Ma guarda un po', pensavo avresti schiacciato sul no...</h1>
+            <p style="
+                font-size: 28px;
+                color: #ff69b4;
+                margin: 0;
+                animation: bounce 1s infinite;
+            ">Preparati pupina, ti porto a cena</p>
             <style>
                 @keyframes bounce {
                     0%, 100% { transform: translateY(0); }
@@ -95,5 +109,6 @@ yesBtn.addEventListener("click", () => {
                 }
             </style>
         `;
+        document.body.appendChild(resultDiv);
     }, 1500);
 });
