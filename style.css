@@ -62,15 +62,15 @@ h1 {
 
 .buttons {
     position: relative;
-    height: 200px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 button {
-    padding: 20px 40px;
-    font-size: 24px;
+    padding: 30px 50px;
+    font-size: 28px;
     font-weight: bold;
     border: none;
     border-radius: 40px;
@@ -82,6 +82,10 @@ button {
     gap: 10px;
     position: relative;
     overflow: hidden;
+    min-height: 70px;
+    width: 100%;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .btn-text {
@@ -92,8 +96,8 @@ button {
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: white;
     box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
-    padding: 15px 35px;
-    font-size: 22px;
+    padding: 20px 50px;
+    font-size: 26px;
 }
 
 .yes-btn:hover {
@@ -110,8 +114,9 @@ button {
     color: #666;
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
     position: absolute;
-    padding: 25px 45px;
-    font-size: 26px;
+    padding: 35px 60px;
+    font-size: 30px;
+    min-height: 85px;
 }
 
 .no-btn:hover {

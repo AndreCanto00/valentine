@@ -12,8 +12,10 @@ function moveNoButton() {
     noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 }
 
-noBtn.addEventListener("mouseover", moveNoButton);
-noBtn.addEventListener("touchstart", moveNoButton);
+noBtn.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    moveNoButton();
+});
 
 function createConfetti() {
     const confetti = document.createElement('div');
