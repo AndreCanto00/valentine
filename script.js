@@ -4,12 +4,19 @@ const yesBtn = document.getElementById("yesBtn");
 let scale = 1;
 
 function moveNoButton() {
-    const x = Math.random() * 250 - 125;
-    const y = Math.random() * 100 - 50;
+    // Calcola posizioni casuali in tutto lo schermo
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+    
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
     scale *= 0.85;
 
-    noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+    noBtn.style.transform = `scale(${scale})`;
 }
 
 noBtn.addEventListener("touchend", (e) => {

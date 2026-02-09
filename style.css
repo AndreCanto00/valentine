@@ -113,13 +113,33 @@ button {
     background: linear-gradient(135deg, #ffd700, #ffed4e);
     color: #666;
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
-    position: absolute;
+    position: fixed;
     padding: 35px 60px;
     font-size: 30px;
     min-height: 85px;
+    z-index: 1000;
 }
 
 .no-btn:hover {
     background: linear-gradient(135deg, #ffc700, #ffe000);
     box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    button {
+        padding: 35px 55px !important;
+        font-size: 32px !important;
+        min-height: 90px !important;
+    }
+    
+    .yes-btn {
+        padding: 35px 55px !important;
+        font-size: 32px !important;
+    }
+    
+    .no-btn {
+        padding: 40px 65px !important;
+        font-size: 34px !important;
+        min-height: 100px !important;
+    }
 }
