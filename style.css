@@ -16,11 +16,12 @@ body {
 
 .card {
     background: white;
-    padding: 50px 40px;
+    padding: 60px 50px;
     border-radius: 30px;
     text-align: center;
     box-shadow: 0 30px 60px rgba(255, 105, 180, 0.25), 0 0 40px rgba(255, 182, 193, 0.15);
-    width: 360px;
+    width: 90%;
+    max-width: 500px;
     position: relative;
     z-index: 10;
     border: 3px solid #ffe4e1;
@@ -44,7 +45,7 @@ body {
 
 h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 36px;
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -53,23 +54,23 @@ h1 {
 }
 
 .question-text {
-    font-size: 20px;
-    margin: 0 0 40px 0;
+    font-size: 26px;
+    margin: 0 0 50px 0;
     color: #555;
     line-height: 1.6;
 }
 
 .buttons {
     position: relative;
-    height: 120px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 button {
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 40px;
+    font-size: 24px;
     font-weight: bold;
     border: none;
     border-radius: 40px;
@@ -91,6 +92,8 @@ button {
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: white;
     box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+    padding: 15px 35px;
+    font-size: 22px;
 }
 
 .yes-btn:hover {
@@ -107,6 +110,8 @@ button {
     color: #666;
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
     position: absolute;
+    padding: 25px 45px;
+    font-size: 26px;
 }
 
 .no-btn:hover {

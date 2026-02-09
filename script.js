@@ -13,10 +13,7 @@ function moveNoButton() {
 }
 
 noBtn.addEventListener("mouseover", moveNoButton);
-noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    moveNoButton();
-});
+noBtn.addEventListener("touchstart", moveNoButton);
 
 function createConfetti() {
     const confetti = document.createElement('div');
